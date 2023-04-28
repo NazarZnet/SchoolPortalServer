@@ -1,0 +1,49 @@
+[package]
+name = "zero2prod"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+path="src/lib.rs"
+
+[[bin]]
+path="src/main.rs"
+name="zero2prod"
+
+
+[dependencies]
+actix-web = "4.3.1"
+derive = "1.0.0"
+features = "0.10.0"
+
+serde = "1.0.154"
+serde_json="1.0.94"
+
+config="0.13.3"
+
+uuid={version="1.3.0",features=["serde","v4","fast-rng"]}
+time={version="0.3.20",features=["serde"]}
+tokio = {version="1.26.0",features=["macros","rt-multi-thread"]}
+sqlx={version="0.6.2",features=["runtime-tokio-rustls","macros","postgres","migrate","uuid","time","offline"]}
+
+tracing={version="0.1.37",features=["log"]}
+tracing-subscriber = { version = "0.3", features = ["registry", "env-filter","json"] }
+tracing-log="0.1.3"
+
+validator={version="0.16.0",features=["derive"]}
+lazy_static="1.4.0"
+regex="1.7.1"
+once_cell="1.17.1"
+
+reqwest={version="0.11.14",features=["json"]}
+md5="0.7.0"
+
+argon2="0.5.0"
+jsonwebtoken="8.3.0"
+
+[dev-dependencies]
+fake={version="2.5.0",features=["derive","uuid"]}
+rand="0.8.1"
+wiremock='0.5.17'
+hex="0.4.3"

@@ -1,0 +1,13 @@
+FROM postgres:alpine
+
+ENV POSTGRES_USER=${PG_USER:-postgres} \
+    POSTGRES_PASSWORD=${PG_PASSWORD:-postgres} \
+    POSTGRES_DB=${PG_DBNAME:-testdb}
+
+EXPOSE 5432
+
+ENV POSTGRES_USER=zero2prod
+
+VOLUME ./database/postgres/data:var/lib/postgresql/data
+
+CMD ["postgres"]

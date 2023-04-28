@@ -1,0 +1,20 @@
+app:
+  port: 8000
+database:
+  host: "127.0.0.1"
+  port: 5432
+  username: "zero2prod"
+  password: "zero2prodpass"
+  database_name: "schooldb"
+avatar: 
+  base_url: "https://gravatar.com/avatar/"
+  default_img: "https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2019/01/Person-icon.jpg"
+auth:
+  access:
+    key: "access secret key"
+    exp: 15
+    maxage: 15
+  refresh:
+    key: "refresh secret key"
+    exp: 60
+    maxage: 60

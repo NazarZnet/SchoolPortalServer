@@ -1,0 +1,372 @@
+{
+  "db": "PostgreSQL",
+  "079332766b130519613cd31c62703c8f202ecba41563ead6f6ed96653ae10ba1": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Uuid"
+        },
+        {
+          "name": "username",
+          "ordinal": 1,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "email",
+          "ordinal": 2,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "password_hash",
+          "ordinal": 3,
+          "type_info": "Text"
+        },
+        {
+          "name": "created_at",
+          "ordinal": 4,
+          "type_info": "Timestamptz"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      }
+    },
+    "query": "select * from users where email = $1"
+  },
+  "1f21cc96b82832064cffa66667a39ff54685edd6779f790e7893555d06fb2ecb": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      }
+    },
+    "query": "delete from courses where student_id = $1;"
+  },
+  "395c942b08345ea61138967a8eb5808b8366150749ed092023fa8ad10f01adfe": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      }
+    },
+    "query": "delete from students where id=$1;"
+  },
+  "4521bb1344ce90a380ff826d568c7dadc3b3d3931bc6090e621c6c7285346e74": {
+    "describe": {
+      "columns": [
+        {
+          "name": "course_name",
+          "ordinal": 0,
+          "type_info": "Text"
+        }
+      ],
+      "nullable": [
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      }
+    },
+    "query": "select course_name from courses where student_id=$1"
+  },
+  "4b1e58b8e1d7f83c8dbc107ffd3cbab77dd0b93b2b378f3b6f9eab87e0c10405": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Uuid",
+          "Varchar",
+          "Int4",
+          "Timestamptz",
+          "Varchar",
+          "Text"
+        ]
+      }
+    },
+    "query": "\n            insert into students (id, full_name, age, registration_date, email, img)\n            values ($1, $2, $3, $4, $5, $6);\n        "
+  },
+  "7a1396b6c75db9efae5e05270ada4de4c23de7e3035430c470127ac6a54603d6": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Int4",
+          "Uuid"
+        ]
+      }
+    },
+    "query": "update students set email=$1, age=$2 where id=$3;"
+  },
+  "8805ba33a50701f5269c1e143c9e181a357c34b59df3d9dc69ca6a978ffbb771": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Uuid"
+        },
+        {
+          "name": "full_name",
+          "ordinal": 1,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "age",
+          "ordinal": 2,
+          "type_info": "Int4"
+        },
+        {
+          "name": "registration_date",
+          "ordinal": 3,
+          "type_info": "Timestamptz"
+        },
+        {
+          "name": "email",
+          "ordinal": 4,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "img",
+          "ordinal": 5,
+          "type_info": "Text"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "select * from students"
+  },
+  "9631a7c509a2dc797a64915656fb7eb5e1d46f82b1d6e1648f859c26bb927e7b": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Uuid"
+        },
+        {
+          "name": "username",
+          "ordinal": 1,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "email",
+          "ordinal": 2,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "password_hash",
+          "ordinal": 3,
+          "type_info": "Text"
+        },
+        {
+          "name": "created_at",
+          "ordinal": 4,
+          "type_info": "Timestamptz"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar",
+          "Text"
+        ]
+      }
+    },
+    "query": "INSERT INTO users (username,email,password_hash) VALUES ($1, $2, $3) RETURNING *"
+  },
+  "bf3dc7a55515fe0ce22d37cd9b8576ded2b1b84829c58edbbd4172e01bf40109": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Uuid"
+        },
+        {
+          "name": "username",
+          "ordinal": 1,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "email",
+          "ordinal": 2,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "password_hash",
+          "ordinal": 3,
+          "type_info": "Text"
+        },
+        {
+          "name": "created_at",
+          "ordinal": 4,
+          "type_info": "Timestamptz"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      }
+    },
+    "query": "select * from users where id=$1;"
+  },
+  "c2286d88fcd214708273462653cf06a1931ef2d14912226d3f50efb930768ff8": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Uuid"
+        },
+        {
+          "name": "full_name",
+          "ordinal": 1,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "age",
+          "ordinal": 2,
+          "type_info": "Int4"
+        },
+        {
+          "name": "registration_date",
+          "ordinal": 3,
+          "type_info": "Timestamptz"
+        },
+        {
+          "name": "email",
+          "ordinal": 4,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "img",
+          "ordinal": 5,
+          "type_info": "Text"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      }
+    },
+    "query": "select * from students where id=$1"
+  },
+  "dc54acfacf135546964069d4bab80f9aa74223fa70c8ad4ef49369e20e64e059": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Uuid"
+        },
+        {
+          "name": "full_name",
+          "ordinal": 1,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "age",
+          "ordinal": 2,
+          "type_info": "Int4"
+        },
+        {
+          "name": "registration_date",
+          "ordinal": 3,
+          "type_info": "Timestamptz"
+        },
+        {
+          "name": "email",
+          "ordinal": 4,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "img",
+          "ordinal": 5,
+          "type_info": "Text"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      }
+    },
+    "query": "select * from students where id=$1;"
+  },
+  "f8b47139a3649b26b1748f6fe536ba1fceef925d6d2aee5c97c91a1abb93d4e0": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      }
+    },
+    "query": "delete from courses where student_id=$1;"
+  }
+}
