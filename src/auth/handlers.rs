@@ -16,8 +16,8 @@ use crate::{
     schemas::{LoginUser, RegisterUser, TokenClaims, TokenType},
 };
 
-#[post("/auth/register")]
-#[instrument(skip(state), name = "Register user")]
+#[post("/auth/signup")]
+#[instrument(skip(state), name = "Sign up user")]
 pub async fn register_user(
     data: web::Json<RegisterUser>,
     state: web::Data<AppState>,
@@ -42,7 +42,7 @@ pub async fn register_user(
     }
 }
 #[post("/auth/login")]
-#[instrument(skip(state), name = "User login")]
+#[instrument(skip(state), name = "User log in")]
 async fn login_user(data: web::Json<LoginUser>, state: web::Data<AppState>) -> impl Responder {
     if let Err(error) = data.validate().map_err(|e| {
         Error::new(

@@ -181,7 +181,7 @@ pub async fn delete_student(
     match db_delete_student(*student_id, &state.connection).await {
         Ok(_) => {
             tracing::info!("Successfully delete student with id: '{}'", student_id);
-            HttpResponse::Ok().json(format!("{{'Deleted student':{} }}", student_id))
+            HttpResponse::Ok().json(format!("Deleted student:{}", student_id))
         }
         Err(e) => {
             tracing::error!("Failed get student's avatar: {}", e);
