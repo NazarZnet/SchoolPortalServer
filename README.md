@@ -10,14 +10,14 @@ docker compose up
 ```
 Then send requests to http://127.0.0.1:8000
 
-## Key technologies:
+## Key Technologies:
 - [Rust](https://www.rust-lang.org/)
 - [Actix Web](https://actix.rs/)
 - [JWT](https://jwt.io/)
 - [Sqlx](https://crates.io/crates/sqlx)
 - [Docker](https://www.docker.com/)
 
-## APIs documentation
+## API Documentation
 
 |            **URI**            | **METHOD** |                                               **DESCRIPTION**                                               |
 |:-----------------------------:|:----------:|:-----------------------------------------------------------------------------------------------------------:|
